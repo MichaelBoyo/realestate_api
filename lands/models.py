@@ -50,11 +50,11 @@ class Land(models.Model):
     initial_deposit = models.IntegerField()
     promo = models.CharField(max_length=225, null=True, blank=True)
     owner = models.CharField(max_length=225)
-    plot_sizes = models.ManyToManyField(PlotSize, related_name='land_plot_sizes', blank=True, null=True)
-    fees = models.ManyToManyField(Fee, related_name='land_fees', null=True, blank=True)
-    images = models.ManyToManyField(Image, related_name='land_images', null=True, blank=True)
-    landmarks = models.ManyToManyField(Landmark, related_name='land_landmarks', null=True, blank=True)
-    estate_features = models.ManyToManyField(EstateFeature, related_name='land_estate_features', null=True, blank=True)
+    plot_sizes = models.ManyToManyField(PlotSize, related_name='land_plot_sizes', blank=True)
+    fees = models.ManyToManyField(Fee, related_name='land_fees',  blank=True)
+    images = models.ManyToManyField(Image, related_name='land_images', blank=True)
+    landmarks = models.ManyToManyField(Landmark, related_name='land_landmarks',  blank=True)
+    estate_features = models.ManyToManyField(EstateFeature, related_name='land_estate_features', blank=True)
 
     def __str__(self):
         return self.description
